@@ -10,159 +10,148 @@
 		function plus(a, b) {
 			return (a + b)
 		}
-		function plus_starter() {
-			console.log(plus(1,2))
+		function plusStarter() {
+			console.log(plus(1, 2))
 		}
 		function multiply(a, b) {
 			return (a * b)
 		}
-		function multiply_starter() {
+		function multiplyStarter() {
 			console.log(multiply(3, 10))
 		}
 		function mergeArrays(amas, bmas) {
-			for (var i = 0; i < amas.length; i++) {
-				bmas.push(amas[i])
-			}
-			return (bmas)
+			return [...amas,...bmas]
 		}
-		function mergeArrays_starter() {
+		function mergeArraysStarter() {
 			console.log(mergeArrays([1, 2, 3], [4, 5]))
 		}
-		function filter (people) {// remember to write function for people task 1.4
-			var women = []
-			for (var i = 0; i < people.length; i++) {
+		function filterFemale(people) {// remember to write function for people task 1.4
+			let women = []
+			for (let i = 0; i < people.length; i++) {
 				if (people[i]['gender'] == 'female'){
 					women.push(people[i])
 				}
 			}
 			return women
 		}
-		function filter_starter() {
-			var human1 = {
+		function filterFemaleStarter() {
+			const human1 = {
 				gender : 'female',
 				name : 'Ann',
 				fav_film : 'Tor'
 			}
-			var human2 = {
+			const human2 = {
 				gender : 'male',
 				name : 'Jan',
 				fav_film : 'Mermaids'
 			}
-			var human3 = {
+			const human3 = {
 				gender : 'female',
 				name : 'Maria',
 				fav_film : 'Cinderella'
 			}
-			var people = [human1, human2, human3]
-			console.log(filter(people))
+			const people = [human1, human2, human3]
+			console.log(filterFemale(people))
 		}
-		function getQuadrant(x, y){ // God forgive me for this shit
-			if (x == 0 && y == 0) {
-				console.log("Point (" + x + ";" + y + ") is an origin point, so it doesn't belongs to any quadrant.")
-			} else {
-				if (x == 0) {
-					console.log ("Point (" + x + ";" + y + ") belongs to y-axis, so it doesn't belongs to any quadrant.")
-				} else {
-					if (y == 0) {
-						console.log ("Point (" + x + ";" + y + ") belongs to x-axis, so it doesn't belongs to any quadrant.")
-					} else {
-						if (x > 0 && y > 0) {
-							console.log ("Point (" + x + ";" + y + ") belongs to I quadrant")
-						} else {
-							if (x > 0 && y < 0) {
-								console.log ("Point (" + x + ";" + y + ") belongs to IV quadrant")
-							} else {
-								if (x < 0 && y < 0){
-									console.log ("Point (" + x + ";" + y + ") belongs to III quadrant")
-								} else {
-									console.log ("Point (" + x + ";" + y + ") belongs to II quadrant")
-								}
-							}
-						}
-					}
-				}
+		function getQuadrant(x, y) { // God forgive me for this shit
+			if (x == 0 || y == 0) { // Used 0 for uncommon outputs
+				return 0
 			}
+			if (x > 0 && y > 0) {
+				return 1
+			}
+			if (x > 0 && y < 0) {
+				return 4
+			}
+			if (x < 0 && y < 0) {
+				return 3
+			}
+			if (x < 0 && y > 0) {
+				return 2
+		    }
 		}
-		function getQuadrant_starter() {
-			getQuadrant(1, 2)
-			getQuadrant(-1, 2)
-			getQuadrant(-2, -3)
-			getQuadrant(4, -7)
-			getQuadrant(0, 0)
+		function getQuadrantStarter() {
+			console.log(getQuadrant(1, 2))
+			console.log(getQuadrant(-1, 2))
+			console.log(getQuadrant(-2, -3))
+			console.log(getQuadrant(4, -7))
+			console.log(getQuadrant(0, 0))
 		}
-		function plusALL(...numbers) {// Poke..Numbers Gotta sum Em aaaall
-			var sum = 0
-			for (var i = 0; i < numbers.length; i++) {
+		function plusAll(...numbers) {// Poke..Numbers Gotta sum Em aaaall
+			let sum = 0
+			for (let i = 0; i < numbers.length; i++) {
 				sum += numbers[i]
 			}
-			return ("Total sum: " + sum)
+			return (sum)
 		}
-		function plusAll_starter() {
-			console.log(plusALL(2, 3, 5, 7, 3))
+		function plusAllStarter() {
+			console.log(plusAll(2, 3, 5, 7, 3))
 		}
 		function multiplyALL(...numbers) {// Poke.. Already joked about that. Not cool man not cool
-			console.log("Total product: " + numbers.reduce(function(a, b){//MORE POINTS FOR GOD OF POITS.
-				return a*b
-			}))
+			return numbers.reduce(function(a, b){//MORE POINTS FOR GOD OF POITS.
+				return (a * b)
+			})
 		}
-		function multiplyAll_starter() {
-			multiplyALL(1, 2, 3, 4, 5)
+		function multiplyAllStarter() {
+			console.log(multiplyALL(1, 2, 3, 4, 5))
 		}
-		function objectToQueryString(params, url){
-			if (url == undefined) {
-				url = "http://vk.com/profile.php" // meh
+		function objectToQueryString(params, url) {
+			let query = ''
+			for (let i in params) {
+				query += encodeURI(i + '=' + params[i]) + '&'
 			}
-			url += '?'
-			for (var i in params){
-				url += encodeURI(i + '=' + params[i]) + '&'
-			}
-			return url.substring(0, url.length - 1)
+			return query.substring(0, query.length - 1)
 		}
-		function objectToQueryString_starter() { // i already hate this idea about starters
+		function objectToQueryStringStarter() { // i already hate this idea about starters
 			console.log(objectToQueryString({ name1: 'John', name2: 'Федор' }))
 		}
-		function lame_filter(people) {
+		function SimpleFilterFemale(people) {
 			return people.filter(people => people.gender == 'female')
 		}
-		function lame_filter_starter() {
-			var human1 = {
+		function SimpleFilterFemaleStarter() {
+			const human1 = {
 				gender : 'female',
 				name : 'Ann',
 				fav_film : 'Tor'
 			}
-			var human2 = {
+			const human2 = {
 				gender : 'male',
 				name : 'Jan',
 				fav_film : 'Mermaids'
 			}
-			var human3 = {
+			const human3 = {
 				gender : 'female',
 				name : 'Maria',
 				fav_film : 'Cinderella'
 			}
-			var people = [human1, human2, human3]
-			console.log(lame_filter(people))
+			const people = [human1, human2, human3]
+			console.log(SimpleFilterFemale(people))
 		}
-		function getIn(obj, path, sdefault) {// why u betrayed me ? default is a key word
-			if (obj && obj[path[0]] && obj[path[0]][path[1]]) {
-				return obj[path[0]][path[1]]
-			}
-			return sdefault
+		function getIn(obj, path, sdefault) {
+			let current = obj
+            for (let i = 0; i < path.length; i++) {// no for each for ya
+                if (current[path[i]]) {
+                	current = current[path[i]]
+                } else {
+                	return sdefault
+                }
+            }
+            return current
 		}
-		function getIn_starter() {
-			var person = {}
+		function getInStarter() {
+			var person = { }
 			console.log(getIn(person, ['address', 'street'], 'Бомж'))
 		}
-		plus_starter()
-		multiply_starter()
-		mergeArrays_starter()
-		filter_starter()
-		getQuadrant_starter()
-		plusAll_starter()
-		multiplyAll_starter()
-		objectToQueryString_starter()
-		lame_filter_starter()
-		getIn_starter()
+		plusStarter()
+		multiplyStarter()
+		mergeArraysStarter()
+		filterFemaleStarter()
+		getQuadrantStarter()
+		plusAllStarter()
+		multiplyAllStarter()
+		objectToQueryStringStarter()
+		SimpleFilterFemaleStarter()
+		getInStarter()
 	</script>
 </body>
 </html>
