@@ -1,157 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Мама, я кодер! Нет, сына, ты вебмакака.</title>
+    <meta charset="utf-8">
+    <title>Мама, я кодер! Нет, сына, ты вебмакака.</title>
 </head>
 <body>
-	<script type="text/javascript">
-		'use strict';
-		function plus(a, b) {
-			return (a + b)
-		}
-		function plusStarter() {
-			console.log(plus(1, 2))
-		}
-		function multiply(a, b) {
-			return (a * b)
-		}
-		function multiplyStarter() {
-			console.log(multiply(3, 10))
-		}
-		function mergeArrays(amas, bmas) {
-			return [...amas,...bmas]
-		}
-		function mergeArraysStarter() {
-			console.log(mergeArrays([1, 2, 3], [4, 5]))
-		}
-		function filterFemale(people) {// remember to write function for people task 1.4
-			let women = []
-			for (let i = 0; i < people.length; i++) {
-				if (people[i]['gender'] == 'female'){
-					women.push(people[i])
-				}
-			}
-			return women
-		}
-		function filterFemaleStarter() {
-			const human1 = {
-				gender : 'female',
-				name : 'Ann',
-				fav_film : 'Tor'
-			}
-			const human2 = {
-				gender : 'male',
-				name : 'Jan',
-				fav_film : 'Mermaids'
-			}
-			const human3 = {
-				gender : 'female',
-				name : 'Maria',
-				fav_film : 'Cinderella'
-			}
-			const people = [human1, human2, human3]
-			console.log(filterFemale(people))
-		}
-		function getQuadrant(x, y) { // God forgive me for this shit
-			if (x == 0 || y == 0) { // Used 0 for uncommon outputs
-				return 0
-			}
-			if (x > 0 && y > 0) {
-				return 1
-			}
-			if (x > 0 && y < 0) {
-				return 4
-			}
-			if (x < 0 && y < 0) {
-				return 3
-			}
-			if (x < 0 && y > 0) {
-				return 2
-		    }
-		}
-		function getQuadrantStarter() {
-			console.log(getQuadrant(1, 2))
-			console.log(getQuadrant(-1, 2))
-			console.log(getQuadrant(-2, -3))
-			console.log(getQuadrant(4, -7))
-			console.log(getQuadrant(0, 0))
-		}
-		function plusAll(...numbers) {// Poke..Numbers Gotta sum Em aaaall
-			let sum = 0
-			for (let i = 0; i < numbers.length; i++) {
-				sum += numbers[i]
-			}
-			return (sum)
-		}
-		function plusAllStarter() {
-			console.log(plusAll(2, 3, 5, 7, 3))
-		}
-		function multiplyALL(...numbers) {// Poke.. Already joked about that. Not cool man not cool
-			return numbers.reduce(function(a, b){//MORE POINTS FOR GOD OF POITS.
-				return (a * b)
-			})
-		}
-		function multiplyAllStarter() {
-			console.log(multiplyALL(1, 2, 3, 4, 5))
-		}
-		function objectToQueryString(params, url) {
-			let query = ''
-			for (let i in params) {
-				query += encodeURI(i + '=' + params[i]) + '&'
-			}
-			return query.substring(0, query.length - 1)
-		}
-		function objectToQueryStringStarter() { // i already hate this idea about starters
-			console.log(objectToQueryString({ name1: 'John', name2: 'Федор' }))
-		}
-		function SimpleFilterFemale(people) {
-			return people.filter(people => people.gender == 'female')
-		}
-		function SimpleFilterFemaleStarter() {
-			const human1 = {
-				gender : 'female',
-				name : 'Ann',
-				fav_film : 'Tor'
-			}
-			const human2 = {
-				gender : 'male',
-				name : 'Jan',
-				fav_film : 'Mermaids'
-			}
-			const human3 = {
-				gender : 'female',
-				name : 'Maria',
-				fav_film : 'Cinderella'
-			}
-			const people = [human1, human2, human3]
-			console.log(SimpleFilterFemale(people))
-		}
-		function getIn(obj, path, sdefault) {
-			let current = obj
+    <script type="text/javascript">
+        'use strict';
+        function plus(a, b) {
+            return (a + b)
+        }
+        function plusStarter() {
+            console.log(plus(1, 2))
+        }
+        function multiply(a, b) {
+            return (a * b)
+        }
+        function multiplyStarter() {
+            console.log(multiply(3, 10))
+        }
+        function mergeArrays(amas, bmas) {
+            return [...amas,...bmas]
+        }
+        function mergeArraysStarter() {
+            console.log(mergeArrays([1, 2, 3], [4, 5]))
+        }
+        function filterFemale(people) {// remember to write function for people task 1.4
+            let women = []
+            for (let i = 0; i < people.length; i++) {
+                if (people[i]['gender'] == 'female'){
+                    women.push(people[i])
+                }
+            }
+            return women
+        }
+        function filterFemaleStarter() {
+            const human1 = {
+                gender : 'female',
+                name : 'Ann',
+                fav_film : 'Tor'
+            }
+            const human2 = {
+                gender : 'male',
+                name : 'Jan',
+                fav_film : 'Mermaids'
+            }
+            const human3 = {
+                gender : 'female',
+                name : 'Maria',
+                fav_film : 'Cinderella'
+            }
+            const people = [human1, human2, human3]
+            console.log(filterFemale(people))
+        }
+        function getQuadrant(x, y) { // God forgive me for this shit
+            if (x == 0 || y == 0) { // Used 0 for uncommon outputs
+                return 0
+            }
+            if (x > 0 && y > 0) {
+                return 1
+            }
+            if (x > 0 && y < 0) {
+                return 4
+            }
+            if (x < 0 && y < 0) {
+                return 3
+            }
+            if (x < 0 && y > 0) {
+                return 2
+            }
+        }
+        function getQuadrantStarter() {
+            console.log(getQuadrant(1, 2))
+            console.log(getQuadrant(-1, 2))
+            console.log(getQuadrant(-2, -3))
+            console.log(getQuadrant(4, -7))
+            console.log(getQuadrant(0, 0))
+        }
+        function plusAll(...numbers) {// Poke..Numbers Gotta sum Em aaaall
+            let sum = 0
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i]
+            }
+            return (sum)
+        }
+        function plusAllStarter() {
+            console.log(plusAll(2, 3, 5, 7, 3))
+        }
+        function multiplyALL(...numbers) {// Poke.. Already joked about that. Not cool man not cool
+            return numbers.reduce(function(a, b){//MORE POINTS FOR GOD OF POITS.
+                return (a * b)
+            })
+        }
+        function multiplyAllStarter() {
+            console.log(multiplyALL(1, 2, 3, 4, 5))
+        }
+        function objectToQueryString(params, url) {
+            let query = ''
+            for (let i in params) {
+                query += encodeURI(i + '=' + params[i]) + '&'
+            }
+            return query.substring(0, query.length - 1)
+        }
+        function objectToQueryStringStarter() { // i already hate this idea about starters
+            console.log(objectToQueryString({ name1: 'John', name2: 'Федор' }))
+        }
+        function SimpleFilterFemale(people) {
+            return people.filter(people => people.gender == 'female')
+        }
+        function SimpleFilterFemaleStarter() {
+            const human1 = {
+                gender : 'female',
+                name : 'Ann',
+                fav_film : 'Tor'
+            }
+            const human2 = {
+                gender : 'male',
+                name : 'Jan',
+                fav_film : 'Mermaids'
+            }
+            const human3 = {
+                gender : 'female',
+                name : 'Maria',
+                fav_film : 'Cinderella'
+            }
+            const people = [human1, human2, human3]
+            console.log(SimpleFilterFemale(people))
+        }
+        function getIn(obj, path, sdefault) {
+            let current = obj
             for (let i = 0; i < path.length; i++) {// no for each for ya
                 if (current[path[i]]) {
-                	current = current[path[i]]
+                    current = current[path[i]]
                 } else {
-                	return sdefault
+                    return sdefault
                 }
             }
             return current
-		}
-		function getInStarter() {
-			var person = { }
-			console.log(getIn(person, ['address', 'street'], 'Бомж'))
-		}
-		plusStarter()
-		multiplyStarter()
-		mergeArraysStarter()
-		filterFemaleStarter()
-		getQuadrantStarter()
-		plusAllStarter()
-		multiplyAllStarter()
-		objectToQueryStringStarter()
-		SimpleFilterFemaleStarter()
-		getInStarter()
-	</script>
+        }
+        function getInStarter() {
+            var person = { }
+            console.log(getIn(person, ['address', 'street'], 'Бомж'))
+        }
+        plusStarter()
+        multiplyStarter()
+        mergeArraysStarter()
+        filterFemaleStarter()
+        getQuadrantStarter()
+        plusAllStarter()
+        multiplyAllStarter()
+        objectToQueryStringStarter()
+        SimpleFilterFemaleStarter()
+        getInStarter()
+    </script>
 </body>
 </html>
