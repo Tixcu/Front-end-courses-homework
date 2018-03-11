@@ -38,17 +38,17 @@
             const human1 = {
                 gender : 'female',
                 name : 'Ann',
-                fav_film : 'Tor'
+                favFilm : 'Tor'
             }
             const human2 = {
                 gender : 'male',
                 name : 'Jan',
-                fav_film : 'Mermaids'
+                favFilm : 'Mermaids'
             }
             const human3 = {
                 gender : 'female',
                 name : 'Maria',
-                fav_film : 'Cinderella'
+                favFilm : 'Cinderella'
             }
             const people = [human1, human2, human3]
             console.log(filterFemale(people))
@@ -95,7 +95,7 @@
         function multiplyAllStarter() {
             console.log(multiplyALL(1, 2, 3, 4, 5))
         }
-        function objectToQueryString(params, url) {
+        function objectToQueryString(params) {
             let query = ''
             for (let i in params) {
                 query += encodeURI(i + '=' + params[i]) + '&'
@@ -105,27 +105,27 @@
         function objectToQueryStringStarter() { // i already hate this idea about starters
             console.log(objectToQueryString({ name1: 'John', name2: 'Федор' }))
         }
-        function SimpleFilterFemale(people) {
+        function simpleFilterFemale(people) {
             return people.filter(people => people.gender == 'female')
         }
-        function SimpleFilterFemaleStarter() {
+        function simpleFilterFemaleStarter() {
             const human1 = {
                 gender : 'female',
                 name : 'Ann',
-                fav_film : 'Tor'
+                favFilm : 'Tor'
             }
             const human2 = {
                 gender : 'male',
                 name : 'Jan',
-                fav_film : 'Mermaids'
+                favFilm : 'Mermaids'
             }
             const human3 = {
                 gender : 'female',
                 name : 'Maria',
-                fav_film : 'Cinderella'
+                favFilm : 'Cinderella'
             }
             const people = [human1, human2, human3]
-            console.log(SimpleFilterFemale(people))
+            console.log(simpleFilterFemale(people))
         }
         function getIn(obj, path, sdefault) {
             let current = obj
@@ -150,7 +150,7 @@
         plusAllStarter()
         multiplyAllStarter()
         objectToQueryStringStarter()
-        SimpleFilterFemaleStarter()
+        simpleFilterFemaleStarter()
         getInStarter()
     </script>
 </body>
