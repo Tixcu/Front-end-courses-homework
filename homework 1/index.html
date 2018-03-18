@@ -18,24 +18,23 @@
         fetch('https://www.reddit.com/top.json')
             .then(response => response.json())
             .then(dataBase => {
-                dataBase = dataBase['data']['children']
-                console.log(dataBase)
+                dataBase = dataBase.data.children
                 dataBase.reduce((preb, post) => {
-                    var div = document.createElement('div');
-                    div.className = "stBack";
-                    let img = "<img src =" + (post['data']['thumbnail']=='default'? 'img/blank.jpg': post['data']['thumbnail']) + '>'
-                    div.innerHTML = '<div class="formatImg">' + img + '</div>'+ '<a href="https://www.reddit.com/' + post['data']['permalink'] + '">' + post['data']['title'] + '</a>';
+                    let div = document.createElement('div');
+                    div.className = "st-back";
+                    let img = "<img src =" + (post.data.thumbnail=='default'? 'img/blank.jpg': post.data.thumbnail) + '>'
+                    div.innerHTML = '<div class="format-img">' + img + '</div>'+ '<a href="https://www.reddit.com/' + post.data.permalink + '">' + post.data.title + '</a>';
                     document.getElementById("center").appendChild(div);
                 })
             })
-        var timeout;
+        let timeout;
         document.onmousemove = function(){
             clearTimeout(timeout);
             timeout = setTimeout(function(){window.location.reload(false);}, 10000)
         }
     </script>
     <div id="preloader"></div>
-    <div class="mainBase" id="center">
+    <div class="main-base" id="center">
     </div>
 </body>
 </html>
