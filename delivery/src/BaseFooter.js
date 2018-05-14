@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, {injectGlobal, css} from 'styled-components';
+import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { sizes, minWidth, maxWidth } from './UtilMedia.js';
+import { minWidth, maxWidth } from './UtilMedia.js';
 
 const Footer = styled.footer`
     margin-top: 100px;

@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, {injectGlobal, css} from 'styled-components';
+import styled, {injectGlobal} from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import BaseFoot from './BaseFooter.js';
 import MainButton from './Buttons.js';
-import { sizes, minWidth, maxWidth } from './UtilMedia.js';
+import { minWidth, maxWidth } from './UtilMedia.js';
 import LeadHeader from './Headers.js';
 
 injectGlobal`
@@ -137,61 +136,6 @@ const StoreCardOrderInfo = styled.p`
 const StoreCardMinPrice = styled.span`
     margin-left: 0.25em;
     font-weight: bold;
-`
-
-const Footer = styled.footer`
-    margin-top: 100px;
-    padding-bottom: 64px;
-    background-color: #333333;
-    ${maxWidth.tablet`margin-top: 30px;`}
-`
-
-const FooterTitle = styled.h4`
-    text-align: center;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-    color: #999999;
-    margin-top: 40px;
-    ${minWidth.tablet`text-align: left;`}
-`
-
-const FooterNavLink = styled.a`
-    text-align: center;
-    display: block;
-    font-family: "Open Sans", Regular;
-    font-size: 18px;
-    line-height: 32px;
-    text-decoration: underline;
-    color: #cccccc;
-    &:hover {
-        color: #a3d200;
-    }
-    ${minWidth.tablet`text-align: left;`}
-`
-
-const FooterText = styled.p`
-    font-size: 18px;
-    line-height: 32px;
-    text-align: left;
-    color: #cccccc;
-`
-
-const FooterSocialIcons = styled.div`
-    text-align: center;
-    ${minWidth.tablet`text-align: right;`}
-`
-
-const FooterSocialIcon = styled.img`
-    margin-top: 40px;
-    margin-left: 15px;
-`
-
-const FooterCopyright = styled(FooterText)`
-    text-align: center;
-    line-height: 24px;
-    margin-top: 40px;
-    ${minWidth.tablet`text-align: right;`}
 `
 
 class Ilpatio extends React.Component {

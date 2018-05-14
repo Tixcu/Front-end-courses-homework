@@ -1,5 +1,4 @@
-import React from 'react';
-import styled, {injectGlobal, css} from 'styled-components';
+import {css} from 'styled-components';
 
 export const sizes = {
     desktop: 1200,
