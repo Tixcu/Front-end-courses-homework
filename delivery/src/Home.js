@@ -110,7 +110,6 @@ const StoreCardImage = styled.img`
 `
 
 const StoreCardName = styled.h2`
-    margin: 6px 0;
     font-weight: bold;
     font-size: 24px;
     line-height: 32px;
@@ -118,132 +117,148 @@ const StoreCardName = styled.h2`
     color: #333333;
 `
 
-const StoreCardText = styled.p`
-    margin: 6px 0 0 0;
+const GreySubButton = styled(MainButton)`
+    margin-right: 5px;
+    padding: 5px 30px;
+    background-color: #D3D3D3;
+    color: black;
+    font-weight: bolder;
+    font-size: 0.9em;
+    opacity: 1;
 `
 
-const StoreCardDeliveryInfo = styled.p`
-    margin: 0 0 6px 0;
-    font-weight: bold;
-`
+const API = "https://itc-web1-server.now.sh/";
+const STORES = "stores";
+const LIMIT = "?limit=8";
 
-const StoreCardOrderInfo = styled.p`
-    margin: 6px 0;
-    font-size: 16px;
-    line-height: 22px;
-`
+class StoresList extends React.Component {
+    constructor(props) {
+        super(props);
 
-const StoreCardMinPrice = styled.span`
-    margin-left: 0.25em;
-    font-weight: bold;
-`
+        this.state = {
+            stores: [],
+        };
+    }
+  
+    componentDidMount() {
+        fetch(API + STORES + LIMIT)
+            .then(response => response.json())
+            .then(data => this.setState({ stores : data.payload.stores}));
+    }
 
-class Ilpatio extends React.Component {
     render() {
+
+        const stores = this.state.stores;
+
         return (
-            <Col lg={3} md={6} xs={12}>
-                <StoreCard>
-                    <StoreCardLink href="#">
-                        <StoreCardImage src="https://duyt4h9nfnj50.cloudfront.net/resized/64aefca79e5d3f19540955e43e91126f-w550-bf.jpg" alt=""/>
-                        <StoreCardName>Il Patio</StoreCardName>
-                        <StoreCardOrderInfo>Заказ от
-                        <StoreCardMinPrice>900</StoreCardMinPrice>
-                        </StoreCardOrderInfo>
-                        <StoreCardText>Доставка</StoreCardText>
-                            <StoreCardDeliveryInfo>бесплатно, 90 минут</StoreCardDeliveryInfo>
-                    </StoreCardLink>
-                </StoreCard>
-            </Col>
-        )
+            <Row around={"xs"}>
+                {stores.map(store => 
+                    <Col lg={3} md={6} xs={12} key={store.title}>
+                        <StoreCard>
+                            <StoreCardLink href="#">
+                                <StoreCardImage src={store.heroImageUrl}/>
+                                <StoreCardName>{ store.title }</StoreCardName>
+
+                                <p>{([].concat(store.categories.map(name => name.name))).join(', ')}</p> 
+
+                                <Row>
+                                    <Col>
+                                        <GreySubButton>{ store.priceBucket }</GreySubButton>
+                                    </Col>
+                                    <Col>
+                                        <GreySubButton>{ store.etaRange.min }-{ store.etaRange.max } минут</GreySubButton>
+                                    </Col>
+                                </Row>
+
+                            </StoreCardLink>
+                        </StoreCard>
+                    </Col>
+                )}
+            </Row>
+        );
     }
 }
 
 export default class Home extends React.Component {
-  render() {
-    return (
-        <main>
-            <Header>
+
+    render() {
+        return (
+            <main>
+                <Header>
+                    <Grid>
+                        <Row center="xs">
+                            <Col lg={3}>
+                                <Row center="xs">
+                                    <Logo>
+                                        <img src="img/logowhite.png" alt="Logo" />
+                                    </Logo>
+                                </Row>
+                            </Col>
+                            <Col lg={5}></Col>
+                            <Col lg={3}>
+                                <Row center="xs">
+                                    <LoginButton>Вход / Регистрация</LoginButton>
+                                </Row>
+                            </Col>
+                            <Col lg={1} md={0}></Col>
+                        </Row>
+                        <Row center="xs">
+                            <Col xs={12}>
+                                <LeadHeader1>Меняйте баллы</LeadHeader1>
+                            </Col>
+                        </Row>
+                        <Row center="xs">
+                            <Col xs={12}>
+                                <LeadHeader2>на призы</LeadHeader2>
+                            </Col>
+                        </Row>
+                        <Row center="xs">
+                            <Col xs={12}>
+                                <ButtonAbout>Подробнее</ButtonAbout>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </Header>
+
                 <Grid>
-                    <Row center="xs">
-                        <Col lg={3}>
-                            <Row center="xs">
-                                <Logo>
-                                    <img src="img/logowhite.png" alt="Logo" />
-                                </Logo>
-                            </Row>
+                    <Row>
+                        <Col lg={6} md={12}>
+                            <Header1>Что мы делаем?</Header1>
+                            <LeadText>
+                                <p>
+                                    Delivery Club - это независимый клубный проект, объединивший сотни служб доставки еды и продуктов в Единую Систему Заказов.
+                                </p>
+                                <p>
+                                    Цель проекта - обеспечить своим пользователям наилучшие условия для быстрого, удобного и выгодного осуществления заказов.
+                                    Услуги сайта абсолютно бесплатны, а условия доставки очень простые
+                                </p>
+                            </LeadText>
                         </Col>
-                        <Col lg={5}></Col>
-                        <Col lg={3}>
-                            <Row center="xs">
-                                <LoginButton>Вход / Регистрация</LoginButton>
-                            </Row>
-                        </Col>
-                        <Col lg={1} md={0}></Col>
-                    </Row>
-                    <Row center="xs">
-                        <Col xs={12}>
-                            <LeadHeader1>Меняйте баллы</LeadHeader1>
-                        </Col>
-                    </Row>
-                    <Row center="xs">
-                        <Col xs={12}>
-                            <LeadHeader2>на призы</LeadHeader2>
-                        </Col>
-                    </Row>
-                    <Row center="xs">
-                        <Col xs={12}>
-                            <ButtonAbout>Подробнее</ButtonAbout>
+                        <Col lg={6} xs={0}>
+                            <DescriptionCover src="img/picpizzaaa.jpg"/>
                         </Col>
                     </Row>
                 </Grid>
-            </Header>
 
-            <Grid>
-                <Row>
-                    <Col lg={6} md={12}>
-                        <Header1>Что мы делаем?</Header1>
-                        <LeadText>
-                            <p>
-                                Delivery Club - это независимый клубный проект, объединивший сотни служб доставки еды и продуктов в Единую Систему Заказов.
-                            </p>
-                            <p>
-                                Цель проекта - обеспечить своим пользователям наилучшие условия для быстрого, удобного и выгодного осуществления заказов.
-                                Услуги сайта абсолютно бесплатны, а условия доставки очень простые
-                            </p>
-                        </LeadText>
-                    </Col>
-                    <Col lg={6} xs={0}>
-                        <DescriptionCover src="img/picpizzaaa.jpg"/>
-                    </Col>
-                </Row>
-            </Grid>
+                <Grid>
+                    <Row>
+                        <Col xs={12}>
+                            <Header1>Рестораны</Header1>
+                        </Col>
+                    </Row>
 
-            <Grid>
-                <Row>
-                    <Col xs={12}>
-                        <Header1>Рестораны</Header1>
-                    </Col>
-                </Row>
-                <Row around={"xs"}>
+                    <StoresList/>
 
-                    <Ilpatio/>
-                    <Ilpatio/>
-                    <Ilpatio/>
-                    <Ilpatio/>
-                    <Ilpatio/>
-                    <Ilpatio/>
-                    <Ilpatio/>
-                    <Ilpatio/>
+                    <Row center="xs">
+                        <Col xs={12}>
+                            <MainButton>Все рестораны</MainButton>
+                        </Col>
+                    </Row>
+                </Grid>
 
-                </Row>
-                <Row center="xs">
-                    <Col xs={12}>
-                        <MainButton>Все рестораны</MainButton>
-                    </Col>
-                </Row>
-            </Grid>
-            <BaseFoot/>
-        </main>
-    );
-  }
+                <BaseFoot/>
+
+            </main>
+        );
+    }
 }

@@ -14,6 +14,9 @@ const MainButton = styled.button`
 		border-color: #b7e611;
     	opacity: 1;
 	}
+	&:active {
+        border: none;
+    }
 `
 
 export default MainButton;
