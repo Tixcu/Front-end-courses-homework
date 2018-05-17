@@ -2,21 +2,21 @@ import styled from 'styled-components';
 import { maxWidth } from '../Utility/UtilMedia.js';
 
 export const MainButton = styled.button`
-	padding: 12px 32px;
+    padding: 12px 32px;
     line-height: 1;
-	border: none;
+    border: none;
     border-radius: 34.5px;
-	opacity: .9;
+    opacity: .9;
     color: #fff;
-	background-color: #a3d200;
+    background-color: #a3d200;
     cursor: pointer;
     outline:none;
-	}
-	&:hover {
-		border-color: #b7e611;
-    	opacity: 1;
-	}
-	&:active {
+    }
+    &:hover {
+        border-color: #b7e611;
+        opacity: 1;
+    }
+    &:active {
         border: none;
     }
 `

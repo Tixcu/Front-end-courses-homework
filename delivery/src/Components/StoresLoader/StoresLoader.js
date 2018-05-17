@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { MainButton } from '../Buttons/Buttons.js';
 import Loader from '../Utility/Preloader.js';
-import StoreCardTemp from './StoreCard/StoreCard.js'
+import StoreCardTemp from './StoreCard/StoreCard.js';
 
 const APISTORES = "https://itc-web1-server.now.sh/stores";
 const LIMIT = "?limit=";
