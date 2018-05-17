@@ -63,7 +63,7 @@ export default class Home extends React.Component {
                     <StoresList/>
                     <Row center="xs">
                         <Col xs={12}>
-                            <Link to='/stores' onUpdate={() => window.scrollTo(0, 0)}>
+                            <Link to='/catalog' onUpdate={() => window.scrollTo(0, 0)}>
                                 <MainButton>Все рестораны</MainButton>
                             </Link>
                         </Col>
