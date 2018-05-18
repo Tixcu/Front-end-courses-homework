@@ -11,6 +11,10 @@ const StoreCardLink = styled.a`
     display: block;
     text-decoration: inherit;
     color: inherit;
+    position: relative;
+    &:hover {
+    	top: -10px;
+    }
 `
 
 const StoreCardImage = styled.img`

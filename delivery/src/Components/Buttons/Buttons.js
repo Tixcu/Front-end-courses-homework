@@ -10,7 +10,7 @@ export const MainButton = styled.button`
     color: #fff;
     background-color: #a3d200;
     cursor: pointer;
-    outline:none;
+    outline: none;
     }
     &:hover {
         border-color: #b7e611;
@@ -34,4 +34,23 @@ export const GreySubButton = styled(MainButton)`
 export const LoginButton = styled(MainButton)`
     margin-top: 63px;
     ${maxWidth.desktop`margin-top: 16px;`}
+`
+
+export const BorderLessBtn = styled.button`
+    border: none;
+    background-color: inherit;
+    outline: none;
+`
+
+export const ResizeBtnStart = styled(MainButton)`
+    border-radius: 34.5px 0px 0px 34.5px; 
+`
+
+export const ResizeBtnEnd = styled(MainButton)`
+    border-radius: 0px 34.5px 34.5px 0px; 
+`
+
+export const ResizeBtnMiddle = styled(MainButton)`
+    border-radius: 0px;
+    margin: 0px 1px 0px 1px;
 `

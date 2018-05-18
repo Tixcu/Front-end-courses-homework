@@ -17,7 +17,7 @@ export default class HomeRestorauntMask extends React.Component {
                         <Header1>Рестораны</Header1>
                     </Col>
                 </Row>
-                <StoresList/>
+                <StoresList resizable/>
                 <Row center="xs">
                     <Col xs={12}>
                         <Link to='/catalog' onUpdate={() => (window.scrollTo(0, 0))}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { MainButton } from '../Buttons/Buttons.js';
+import { MainButton, ResizeBtnMiddle, ResizeBtnStart, ResizeBtnEnd } from '../Buttons/Buttons.js';
 import Loader from '../Utility/Preloader.js';
 import StoreCardTemp from './StoreCard/StoreCard.js';
 
@@ -19,6 +19,7 @@ export default class StoresList extends React.Component {
             loading: true,
             first: true,
             limit: 8,
+            more: 8,
         };
     }
 
@@ -26,12 +27,21 @@ export default class StoresList extends React.Component {
         this.setState({loading: true});
         fetch(APISTORES + LIMIT + this.state.limit + SHIFT + this.props.offset)
             .then(response => response.json())
-            .then(data => this.setState({stores: data.payload.stores, loading: false, first: false, limit: this.state.limit+8}));
+            .then(data => this.setState({stores: data.payload.stores, loading: false, first: false, limit: this.state.limit+this.state.more}));
     }
   
     componentDidMount() {
         this.retrieveStores();
     }
+
+    resize(num) {
+        this.setState({
+            limit: num, more: num
+        }, () => {
+            this.retrieveStores();
+        });
+    }
+
     render() {
 
         const stores = this.state.stores;
@@ -48,10 +58,33 @@ export default class StoresList extends React.Component {
             return (
                 <Grid>
 
+                    {this.props.resizable? 
+                        (
+                            <Grid start="xs">
+                                <Row>
+                                    <Col>
+                                        <ResizeBtnStart onClick={this.resize.bind(this, 4)}>4</ResizeBtnStart>
+                                    </Col>
+                                    <Col>
+                                        <ResizeBtnMiddle onClick={this.resize.bind(this, 8)}>8</ResizeBtnMiddle>
+                                    </Col>
+                                    <Col>
+                                        <ResizeBtnMiddle onClick={this.resize.bind(this, 16)}>16</ResizeBtnMiddle>
+                                    </Col>
+                                    <Col>
+                                        <ResizeBtnEnd onClick={this.resize.bind(this, 24)}>24</ResizeBtnEnd>
+                                    </Col>
+                                </Row>
+                                <br/>
+                            </Grid>
+                        ) : (<span/>)
+                    }
+
                     <Row around={"xs"}>
 
                         {stores.map(store => 
                             <StoreCardTemp
+                                key = {store.title}
                                 imgSrc = {store.heroImageUrl}
                                 storename = {store.title}
                                 tags = {store.categories}
