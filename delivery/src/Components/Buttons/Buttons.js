@@ -44,7 +44,7 @@ export const BorderLessBtn = styled.button`
 
 export const ResizeBtnStart = styled(MainButton)`
     border-radius: 34.5px 0px 0px 34.5px; 
-    margin-rigth: 1px;
+    margin-right: 1px;
 `
 
 export const ResizeBtnEnd = styled(MainButton)`
